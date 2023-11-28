@@ -1,0 +1,7 @@
+#main-header {
+      height: 60px;
+}
+
+#main-section {
+      height: calc(100vh - 60px);
+}
