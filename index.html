@@ -1,74 +1,677 @@
 <!DOCTYPE html>
 <html lang="en">
-      <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" href="css/style.css">
-            <title>Dashboard</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bool Dashboard</title>
 
-            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-            <link rel="stylesheet" href="css/style.css">
-      </head>
-      <body>
-            <header id="main-header" class="d-flex align-items-center bg-warning">
-                  <div class="container-fluid bg-body-secondary">
-                        <div class="row">
-                              <div class="col-auto">
-                                    <img src="img/logo.svg">
-                              </div>
-                              <div class="col">
-                                    COL
-                              </div>
-                              <div class="col-auto">
-                                    <i class="fa-sharp fa-solid fa-list"></i>
-                              </div>
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="./css/style.css">
+
+        <!-- font-awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+       <header>
+            <div class="container-fluid">
+                <div class="row h-100 align-items-center">
+                    <div class="col-1 h-75 bg-white">
+                        <a href="">
+                            <div class="box h-100 d-none d-lg-flex align-items-center">
+                                <img class="w-100 pe-2" src="./img/logo.svg" alt="logo">
+                            </div>
+
+                            <div class="box h-100 d-flex justify-content-center d-lg-none">
+                                <img class="h-100" src="./img/mobile-logo.png" alt="mobile-logo">
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col h-75 p-0 bg-white">
+                        <div class="box h-100 d-flex align-items-center">
+                            <div class="w-100">
+                                <span class="input-group-text pt-0 pb-0">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                    <input type="text" class="form-control shadow-none" id="exampleFormControlInput1" placeholder="Prova a cercare: Lezioni di Laravel">
+                                </span>
+                            </div>
                         </div>
-                  </div>
-            </header>
-            <section id="main-section" class="bg-success">
-                  <div class="container-fluid h-100">
-                        <div class="row h-100">
-                              <div class="col-auto h-100 bg-primary">
-                                    <aside class="h-100 d-flex flex-column justify-content-between">
-                                          <nav>
-                                                <i class="bi bi-house-door-fill"></i>
-                                                <h6>
-                                                      Home
-                                                </h6>
-                                                <h6>
-                                                      Stats
-                                                </h6>
-                                                <h6>
-                                                      Signals
-                                                </h6>
-                                          </nav>
-                                          <nav>
-                                                <h6>
-                                                      Admin
-                                                </h6>
-                                          </nav>
-                                    </aside>
-                              </div>
-                              <div class="col bg-info">
-                                    <main id="main-content" class="h-100 overflow-y-auto">
-                                          <header class="bg-danger">
-                                                HEADER
-                                          </header>
-                                          <section>
-                                                <div class="row g-0">
-                                                      <div class="col-12 col-lg-8 bg-body-secondary">
-                                                            SX
-                                                      </div>
-                                                      <div class="col-12 col-4 bg-body-tertiary">
-                                                            DX
-                                                      </div>
+                    </div>
+
+                    <div class="col-auto h-75 p-0 bg-white">
+                        <div class="box h-100 d-flex align-items-center">
+                            <button class="d-none d-lg-block p-0 border-0 bg-white"><i class="fa-solid fa-list-ul ms-2 me-2 text-secondary"></i></button>
+                            <button class="d-none d-lg-block p-0 border-0 bg-white" href=""><i class="fa-solid fa-circle-question ms-2 me-2 text-secondary"></i></button>
+                            <button class="d-none d-lg-block p-0 border-0 bg-white" href=""><i class="fa-solid fa-ellipsis-vertical ms-2 me-2 text-secondary"></i></button>
+                            <div class="dropdown">
+                                <button class="btn btn-secondary p-0 bg-white border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i id="bell" class="fa-solid fa-bell ms-2 me-2"></i>
+                                </button>
+
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Profilo</a></li>
+                                    <li><a class="dropdown-item" href="#">Fatturazione</a></li>
+                                    <li><a class="dropdown-item" href="#">Logout</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       </header>
+
+       <main>
+            <div class="container-fluid">
+                <div class="row h-100">
+                    <aside class="col-1 h-100 p-0">
+                        <nav class="box h-100 d-flex flex-column">
+                            <div>
+                                <ul class="list-group rounded-0">
+                                    <li class="list-group-item border-0 p-0 bg-aside-top text-white">
+                                        <div class="p-2 pt-4">
+                                            <a class="my-a" href="">
+                                                <div class="d-flex justify-content-center pt-1 pb-1">
+                                                    <div class="house-container">
+                                                        <i class="fa-solid fa-house"></i>
+                                                    </div>
+
+                                                    <span class="d-none d-lg-inline">Home</span>
                                                 </div>
-                                          </section>
-                                    </main>
-                              </div>
+                                            </a>
+                                        </div>
+                                    </li>
+
+                                    <li class="list-group-item border-0 p-0 bg-aside-top text-white">
+                                        <div class="p-2">
+                                            <a class="my-a" href="">
+                                                <div class="d-flex justify-content-center pt-1 pb-1">
+                                                    <div class="chart-container">
+                                                        <i class="fa-solid fa-chart-simple"></i>
+                                                    </div>
+
+                                                    <span class="d-none d-lg-inline" >Stats</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+
+                                    <li class="list-group-item border-0 p-0 text-white">
+                                        <div class="skew-c p-2">
+                                            <a class="my-a" href="">
+                                                <div class="d-flex justify-content-center pt-1 pb-1">
+                                                    <div class="signal-container">
+                                                        <i class="fa-solid fa-signal"></i>
+                                                    </div>
+
+                                                    <span class="d-none d-lg-inline">Signals</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="h-100 d-flex justify-content-center align-items-end bg-aside-bottom-with-gradient">
+                                <ul class="w-100 list-group rounded-0">
+                                    <li class="list-group-item border-0 p-0 bg-aside-top text-white">
+                                        <div class="p-2 pb-4">
+                                            <a class="my-a" href="">
+                                                <div class="d-flex justify-content-center pt-1 pb-1">
+                                                    <div class="gear-container">
+                                                        <i class="fa-solid fa-gear"></i>
+                                                    </div>
+                                                            
+                                                    <span class="d-none d-lg-inline" >Admin</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </aside>
+
+                    <div class="col h-100 overflow-y-auto">
+                        <div class="box h-100">
+                            <div class="row bg-primary">
+                                <div class="col-lg-6 col-md-4 col-sm-12 col-12">
+                                    <div class="box h-100 pt-3 pb-3">
+                                        <div class="d-flex align-items-center">
+                                            <h3 class="text-white">
+                                                Boolean
+                                            </h3>
+
+                                            <span class="badge my-badge my-text-bg-dark-blue ms-1">Piano blaze</span>
+                                        </div>
+
+                                        <div>
+                                            <span class="badge my-badge my-text-bg-dark-blue align-middle">3 app</span>
+                                            <i id="quotation-marks" class="fa-solid fa-angles-right align-middle"></i>
+                                            <span class="badge my-badge my-text-bg-dark-blue align-middle d-none d-lg-inline">Boolean mobile app</span>
+                                            <span class="badge my-badge my-text-bg-dark-blue ms-1 align-middle d-none d-lg-inline">Boolean web app</span>
+                                            <span class="badge my-badge my-text-bg-dark-blue ms-1 align-middle d-none d-lg-inline">Boolean blog app</span>
+                                            <span class="badge my-badge my-text-bg-dark-blue ms-1 align-middle d-inline d-lg-none">+</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                                    <div class="box pt-3 pb-3">
+                                        <div>
+                                            <p class="text-white m-0">
+                                                Studenti online negli ultimi 30 minuti
+                                            </p>
+                                        </div>
+
+                                        <div class="text-white">
+                                            <span class="fs-1">
+                                                125
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-2 col-md-4 col-sm-12 col-12 order-first order-md-0">
+                                    <div class="box pt-3 pb-3 h-100">
+                                        <div class="d-flex justify-content-lg-start justify-content-md-center align-items-center">
+                                            <span id="new-student" class="text-white">
+                                                Nuovo studente 
+                                            </span>
+
+                                            <button id="plus" class="p-0 border-0 bg-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                                                <div class="d-flex justify-content-center align-items-center plus-container p-3 ms-2">
+                                                    <i class="fa-solid fa-plus"></i>
+                                                </div>
+                                            </button>
+
+                                            <div class="offcanvas offcanvas-end w-50" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                                                <div class="offcanvas-header">
+                                                    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Inserisci un nuovo studente</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                                </div>
+
+                                                <div class="offcanvas-body">
+                                                    <div>
+                                                        <form>
+                                                            <div class="row">
+                                                                <div class="col-6 my-padding-bottom">
+                                                                    <div class="form-group">
+                                                                        <label class="mb-1" for="formGroupExampleInput">Nome</label>
+                                                                        <input type="text" class="form-control" id="formGroupExampleInput">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-6 my-padding-bottom">
+                                                                    <div class="form-group">
+                                                                        <label class="mb-1" for="formGroupExampleInput">Cognome</label>
+                                                                        <input type="text" class="form-control" id="formGroupExampleInput">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-6 my-padding-bottom">
+                                                                    <div class="form-group">
+                                                                        <label class="mb-1" for="formGroupExampleInput">Email</label>
+                                                                        <div class="input-group mb-3">
+                                                                            <div class="input-group-prepend">
+                                                                              <span class="input-group-text" id="basic-addon1">@</span>
+                                                                            </div>
+                                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-6 my-padding-bottom">
+                                                                    <div class="form-group">
+                                                                        <label class="mb-1" for="formGroupExampleInput">Password</label>
+                                                                        <input type="password" class="form-control" id="formGroupExampleInput">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-12 my-padding-bottom">
+                                                                    <div class="form-group">
+                                                                        <label class="mb-1" for="formGroupExampleInput">Indirizzo</label>
+                                                                        <input type="text" class="form-control" id="formGroupExampleInput">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-6 my-padding-bottom">
+                                                                    <div class="form-group">
+                                                                        <label class="mb-1" for="formGroupExampleInput">Città</label>
+                                                                        <input type="text" class="form-control" id="formGroupExampleInput">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-4 my-padding-bottom">
+                                                                    <div class="form-group">
+                                                                        <label class="mb-1" for="formGroupExampleInput">Stato</label>
+                                                                        <input type="text" class="form-control" id="formGroupExampleInput">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-2 my-padding-bottom">
+                                                                    <div class="form-group">
+                                                                        <label class="mb-1" for="formGroupExampleInput">CAP</label>
+                                                                        <input type="text" class="form-control" id="formGroupExampleInput">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-12 my-padding-bottom">
+                                                                    <div class="form-group">
+                                                                        <label class="mb-1" for="formGroupExampleInput">Foto</label>
+                                                                        <div class="input-group mb-3">
+                                                                            <div class="custom-file">
+                                                                                <input type="file" class="custom-file-input" id="inputGroupFile02">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-12 my-padding-bottom">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                                                        <label class="form-check-label" for="defaultCheck1">Seleziona per proseguire</label>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-12 my-padding-bottom">
+                                                                    <button type="button" class="btn btn-primary">Salva</button>
+                                                                    <button type="reset" class="btn btn-warning">Svuota</button>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row bg-body-tertiary">
+                                <div class="col-lg-8 col-md-12 col-sm-12 col-12 my-padding-top">
+                                    <div class="box">
+                                        <div class="prossime-classi">
+                                            <div class="card">
+                                                <div class="card-header prossime-classi-card-header">
+                                                    <h4 class="m-0">
+                                                        Prossime classi
+                                                    </h4>
+                                                </div>
+
+                                                <div class="p-2">
+                                                    <table class="table table-hover prossime-classi-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">Nome</th>
+                                                                <th class="text-center d-none d-md-table-cell" scope="col">Data inizio</th>
+                                                                <th class="text-center d-none d-md-table-cell" scope="col">ROI</th>
+                                                                <th class="text-center" scope="col">Stato</th>
+                                                                <th class="text-center" scope="col">Azioni</th>
+                                                            </tr>
+                                                        </thead>
+
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="d-flex">
+                                                                        <div class="code-container me-2">
+                                                                            <i class="fa-solid fa-code"></i>
+                                                                        </div>
+
+                                                                        <span>Classe 75</span>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="text-center d-none d-md-table-cell">15 Feb 2021</td>
+                                                                <td class="text-center d-none d-md-table-cell">20%</td>
+                                                                <td class="text-center"><span class="badge bg-success">Done</span></td>
+                                                                <td>
+                                                                    <div class="d-flex justify-content-center">
+                                                                        <div class="d-flex">
+                                                                            <div class="pen-container me-2">
+                                                                                <i class="fa-solid fa-pen"></i>
+                                                                            </div>
+
+                                                                            <div class="trash-container">
+                                                                                <i class="fa-solid fa-trash"></i>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="d-flex">
+                                                                        <div class="code-container me-2">
+                                                                            <i class="fa-solid fa-code"></i>
+                                                                        </div>
+
+                                                                        <span>Classe 76</span>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="text-center d-none d-md-table-cell">16 Feb 2021</td>
+                                                                <td class="text-center d-none d-md-table-cell">20%</td>
+                                                                <td class="text-center"><span class="badge bg-success">Done</span></td>
+                                                                <td>
+                                                                    <div class="d-flex justify-content-center">
+                                                                        <div class="d-flex">
+                                                                            <div class="pen-container me-2">
+                                                                                <i class="fa-solid fa-pen"></i>
+                                                                            </div>
+
+                                                                            <div class="trash-container">
+                                                                                <i class="fa-solid fa-trash"></i>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="d-flex">
+                                                                        <div class="code-container me-2">
+                                                                            <i class="fa-solid fa-code"></i>
+                                                                        </div>
+
+                                                                        <span>Classe 77</span>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="text-center d-none d-md-table-cell">17 Feb 2021</td>
+                                                                <td class="text-center d-none d-md-table-cell">20%</td>
+                                                                <td class="text-center"><span class="badge bg-warning">Process</span></td>
+                                                                <td>
+                                                                    <div class="d-flex justify-content-center">
+                                                                        <div class="d-flex">
+                                                                            <div class="pen-container me-2">
+                                                                                <i class="fa-solid fa-pen"></i>
+                                                                            </div>
+
+                                                                            <div class="trash-container">
+                                                                                <i class="fa-solid fa-trash"></i>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="d-flex">
+                                                                        <div class="code-container me-2">
+                                                                            <i class="fa-solid fa-code"></i>
+                                                                        </div>
+
+                                                                        <span>Classe 78</span>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="text-center d-none d-md-table-cell">18 Feb 2021</td>
+                                                                <td class="text-center d-none d-md-table-cell">20%</td>
+                                                                <td class="text-center"><span class="badge bg-success">Done</span></td>
+                                                                <td>
+                                                                    <div class="d-flex justify-content-center">
+                                                                        <div class="d-flex">
+                                                                            <div class="pen-container me-2">
+                                                                                <i class="fa-solid fa-pen"></i>
+                                                                            </div>
+
+                                                                            <div class="trash-container">
+                                                                                <i class="fa-solid fa-trash"></i>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="d-flex">
+                                                                        <div class="code-container me-2">
+                                                                            <i class="fa-solid fa-code"></i>
+                                                                        </div>
+
+                                                                        <span>Classe 79</span>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="text-center d-none d-md-table-cell">19 Feb 2021</td>
+                                                                <td class="text-center d-none d-md-table-cell">20%</td>
+                                                                <td class="text-center"><span class="badge bg-danger">Failed</span></td>
+                                                                <td>
+                                                                    <div class="d-flex justify-content-center">
+                                                                        <div class="d-flex">
+                                                                            <div class="pen-container me-2">
+                                                                                <i class="fa-solid fa-pen"></i>
+                                                                            </div>
+
+                                                                            <div class="trash-container">
+                                                                                <i class="fa-solid fa-trash"></i>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="d-flex">
+                                                                        <div class="code-container me-2">
+                                                                            <i class="fa-solid fa-code"></i>
+                                                                        </div>
+
+                                                                        <span>Classe 80</span>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="text-center d-none d-md-table-cell">20 Feb 2021</td>
+                                                                <td class="text-center d-none d-md-table-cell">20%</td>
+                                                                <td class="text-center"><span class="badge bg-success">Done</span></td>
+                                                                <td>
+                                                                    <div class="d-flex justify-content-center">
+                                                                        <div class="d-flex">
+                                                                            <div class="pen-container me-2">
+                                                                                <i class="fa-solid fa-pen"></i>
+                                                                            </div>
+
+                                                                            <div class="trash-container">
+                                                                                <i class="fa-solid fa-trash"></i>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="d-flex">
+                                                                        <div class="code-container me-2">
+                                                                            <i class="fa-solid fa-code"></i>
+                                                                        </div>
+
+                                                                        <span>Classe 81</span>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="text-center d-none d-md-table-cell">21 Feb 2021</td>
+                                                                <td class="text-center d-none d-md-table-cell">20%</td>
+                                                                <td class="text-center"><span class="badge bg-danger">Failed</span></td>
+                                                                <td>
+                                                                    <div class="d-flex justify-content-center">
+                                                                        <div class="d-flex">
+                                                                            <div class="pen-container me-2">
+                                                                                <i class="fa-solid fa-pen"></i>
+                                                                            </div>
+
+                                                                            <div class="trash-container">
+                                                                                <i class="fa-solid fa-trash"></i>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="d-flex">
+                                                                        <div class="code-container me-2">
+                                                                            <i class="fa-solid fa-code"></i>
+                                                                        </div>
+
+                                                                        <span>Classe 82</span>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="text-center d-none d-md-table-cell">22 Feb 2021</td>
+                                                                <td class="text-center d-none d-md-table-cell">20%</td>
+                                                                <td class="text-center"><span class="badge bg-success">Done</span></td>
+                                                                <td>
+                                                                    <div class="d-flex justify-content-center">
+                                                                        <div class="d-flex">
+                                                                            <div class="pen-container me-2">
+                                                                                <i class="fa-solid fa-pen"></i>
+                                                                            </div>
+
+                                                                            <div class="trash-container">
+                                                                                <i class="fa-solid fa-trash"></i>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="faq my-padding-top">
+                                            <div class="card">
+                                                <div class="card-header faq-card-header">
+                                                    <h4 class="m-0">
+                                                        F.A.Q.
+                                                    </h4>
+                                                </div>
+                                                
+                                                <div class="accordion accordion-flush" id="accordionFlushExample">
+                                                    <div class="accordion-item">
+                                                        <h2 class="accordion-header">
+                                                            <button class="accordion-button my-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                                                Come aggiungere un nuovo studente?
+                                                            </button>
+                                                        </h2>
+
+                                                        <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                                                            <div class="accordion-body">
+                                                                Clicca sul + in alto nella sezione blu.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="accordion-item">
+                                                        <h2 class="accordion-header">
+                                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                                                Come posso accedere alle informazioni del mio account?
+                                                            </button>
+                                                        </h2>
+
+                                                        <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                                                            <div class="accordion-body">
+                                                                Clicca sull'icona della campanella.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="accordion-item">
+                                                        <h2 class="accordion-header">
+                                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                                                            Posso usare questa dashboard da mobile?
+                                                            </button>
+                                                        </h2>
+                                                      
+                                                        <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                                                            <div class="accordion-body">
+                                                                Sì ma non ti conviene.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-md-12 col-sm-12 col-12 my-padding-top">
+                                    <div class="box">
+                                        <div class="list-todo">
+                                            <div class="card">
+                                                <div class="card-header faq-card-header">
+                                                    <h4 class="m-0">
+                                                        TODO
+                                                    </h4>
+                                                </div>
+
+                                                <div class="p-2">
+                                                    <ul class="list-group">
+                                                        <li class="list-group-item">
+                                                        <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckboxStretched">
+                                                        <label class="form-check-label stretched-link" for="firstCheckboxStretched">Kickoff nuove classi</label>
+                                                        </li>
+
+                                                        <li class="list-group-item">
+                                                        <input class="form-check-input me-1" type="checkbox" value="" id="secondCheckboxStretched">
+                                                        <label class="form-check-label stretched-link" for="secondCheckboxStretched">Lezione su Bootstrap 5 in classe #75</label>
+                                                        </li>
+
+                                                        <li class="list-group-item">
+                                                        <input class="form-check-input me-1" type="checkbox" value="" id="thirdCheckboxStretched">
+                                                        <label class="form-check-label stretched-link" for="thirdCheckboxStretched">Controllare username Github studenti</label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="graph-todo my-padding-top my-padding-bottom">
+                                            <div class="card">
+                                                <div class="p-2">
+                                                    <ul class="list-group">
+                                                        <li class="list-group-item">
+                                                            <div class="stats-container">
+                                                                <img src="./img/stats.jpeg" alt="stats">
+                                                            </div>
+                                                            
+                                                            <h6>
+                                                                Utenti attivi
+                                                            </h6>
+
+                                                            <p>
+                                                                Lista degli utenti attivi in piattaforma nell'ultimo mese
+                                                            </p>
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            Gennaio: 1200
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            Febbraio: 800
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            Marzo: 1500
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            <a href="">Visualizza report approfondito</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                  </div>
-            </section>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-      </body>
+                    </div>
+                </div>
+            </div>
+       </main>
+       
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    </body>
 </html>
